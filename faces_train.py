@@ -3,11 +3,12 @@ import cv2 as cv
 import numpy as np
 
 
-people = ['Brad Pitt', 'Edward Norton', 'Matt LeBlanc', 'matthew mcconaughey', 'Robert de niro']
-DIR = r'F:\Univ\COOP\Task2\Opencv\Faces\Train'
+people = []
+DIR = r'Faces/Train'
 haar_cascade = cv.CascadeClassifier('har_face.xml')
-# for i in os.listdir(DIR):
-#     people.append(i)
+
+for i in os.listdir(DIR):
+     people.append(i)
 
 features = []
 labels = []
@@ -44,3 +45,4 @@ face_recognizer.train(features,labels)
 face_recognizer.save('face_traind.yml')
 np.save('features.npy', features)
 np.save('labels.npy', labels)
+print(people)
